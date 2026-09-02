@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+@import "tailwindcss";
+
+:root {
+  /* ================================
+     BRAND COLORS
+     ================================ */
+
+  --color-primary: #0f3b67;
+  --color-secondary: #14b8a6;
+  --color-accent-blue: #2563eb;
+  --color-accent-purple: #7c3aed;
+
+  /* Supporting Colors */
+  --color-soft-blue: #e8f4ff;
+  --color-mint: #c7f2e9;
+  --color-lavender: #e9d5ff;
+  --color-soft-white: #f8fafc;
+
+  /* Text */
+  --color-text: #0f172a;
+  --color-text-muted: #64748b;
+  --color-text-light: #ffffff;
+
+  /* Borders */
+  --color-border: #e2e8f0;
+
+  /* Effects */
+  --shadow-sm: 0 2px 8px rgba(15, 59, 103, 0.06);
+  --shadow-md: 0 8px 24px rgba(15, 59, 103, 0.1);
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+}
+
+/* ================================
+   BASE
+   ================================ */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--color-soft-white);
+  color: var(--color-text);
+  font-family: "Poppins", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ================================
+   SELECTION
+   ================================ */
+
+::selection {
+  background: var(--color-secondary);
+  color: white;
+}
