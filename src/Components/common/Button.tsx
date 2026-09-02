@@ -28,7 +28,7 @@ export default function Button({
 
   return (
     <a
-      href={href}
+      href={href.startsWith("/") ? `#${href}` : href}
       className={`group inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3.5 text-sm font-semibold transition-all duration-300 hover:-translate-y-0.5 ${variants[variant]} ${className}`}
     >
       {children}

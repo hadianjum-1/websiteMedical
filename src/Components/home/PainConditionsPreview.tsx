@@ -101,7 +101,7 @@ export default function PainConditionsPreview() {
           />
 
           <a
-            href="/conditions"
+            href="#/conditions"
             className="group inline-flex shrink-0 items-center gap-2 text-sm font-semibold text-[#0F3B67]"
           >
             View all conditions
@@ -115,7 +115,7 @@ export default function PainConditionsPreview() {
           {conditions.map((condition) => (
             <a
               key={condition.title}
-              href="/conditions"
+              href="#/conditions"
               className="group rounded-3xl border border-slate-100 bg-[#F8FAFC] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[#14B8A6]/20 hover:bg-white hover:shadow-[0_15px_40px_rgba(15,59,103,0.08)]"
             >
               <IconBox

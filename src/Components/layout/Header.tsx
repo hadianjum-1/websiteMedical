@@ -9,13 +9,13 @@ import {
 } from "lucide-react";
 
 const navItems = [
-  { label: "Home", href: "/" },
-  { label: "About Dr. Romana", href: "/about" },
-  { label: "Conditions", href: "/conditions" },
-  { label: "Treatments", href: "/treatments" },
-  { label: "Success Stories", href: "/success-stories" },
-  { label: "Resources", href: "/resources" },
-  { label: "Contact", href: "/contact" },
+  { label: "Home", href: "#/" },
+  { label: "About Dr. Romana", href: "#/about" },
+  { label: "Conditions", href: "#/conditions" },
+  { label: "Treatments", href: "#/treatments" },
+  { label: "Success Stories", href: "#/success-stories" },
+  { label: "Resources", href: "#/resources" },
+  { label: "Contact", href: "#/contact" },
 ];
 import logo from '../../assets/logo.png'
 
@@ -91,7 +91,7 @@ export default function Header() {
 
         <a
           ref={logoRef}
-          href="/"
+          href="#/"
           className="group flex items-center gap-3"
           onClick={closeMobileMenu}
         >
@@ -151,7 +151,7 @@ export default function Header() {
 
           <a
             data-cta-button
-            href="/contact"
+            href="#/contact"
             className="group flex items-center gap-2 rounded-xl bg-[#0F3B67] px-5 py-3 text-[12px] font-semibold text-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#0b3155] hover:shadow-lg"
           >
             <CalendarDays

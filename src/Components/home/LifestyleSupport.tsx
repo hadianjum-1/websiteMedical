@@ -82,7 +82,7 @@ export default function LifestyleSupport() {
               </p>
 
               <a
-                href="/contact"
+                href="#/contact"
                 className="group mt-7 inline-flex items-center gap-2 rounded-xl border border-[#0F3B67]/15 px-5 py-3.5 text-sm font-semibold text-[#0F3B67] transition-all hover:border-[#7C3AED]/30 hover:bg-[#E9D5FF]/30"
               >
                 Ask about support

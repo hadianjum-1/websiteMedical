@@ -148,7 +148,7 @@ export default function SuccessStoryPreview() {
             </div>
 
             <a
-              href="/success-stories"
+              href="#/success-stories"
               className="group mt-7 inline-flex items-center gap-2 text-sm font-semibold text-[#0F3B67]"
             >
               Read the full story

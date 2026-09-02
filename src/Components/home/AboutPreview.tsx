@@ -164,7 +164,7 @@ export default function AboutPreview() {
             </div>
 
             <a
-              href="/about"
+              href="#/about"
               className="group mt-8 inline-flex items-center gap-2 rounded-xl bg-[#0F3B67] px-5 py-3.5 text-sm font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-[#0b3155]"
             >
               Discover Her Story

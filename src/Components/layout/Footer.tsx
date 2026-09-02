@@ -9,13 +9,13 @@ import {
 import Logo from '../../assets/logo-white.png'
 
 const quickLinks = [
-  { label: "Home", href: "/" },
-  { label: "About Dr. Romana", href: "/about" },
-  { label: "Conditions", href: "/conditions" },
-  { label: "Treatments", href: "/treatments" },
-  { label: "Success Stories", href: "/success-stories" },
-  { label: "Resources", href: "/resources" },
-  { label: "Contact", href: "/contact" },
+  { label: "Home", href: "#/" },
+  { label: "About Dr. Romana", href: "#/about" },
+  { label: "Conditions", href: "#/conditions" },
+  { label: "Treatments", href: "#/treatments" },
+  { label: "Success Stories", href: "#/success-stories" },
+  { label: "Resources", href: "#/resources" },
+  { label: "Contact", href: "#/contact" },
 ];
 
 const services = [
@@ -63,7 +63,7 @@ export default function Footer() {
             </div>
 
             <a
-              href="/contact"
+              href="#/contact"
               className="group inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-white px-6 py-3.5 text-sm font-semibold text-[#0F3B67] transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
             >
               Book a Consultation
@@ -89,7 +89,7 @@ export default function Footer() {
 
           <div>
             <a
-              href="/"
+              href="#/"
               className="inline-flex items-center gap-3"
             >
              <img src={Logo} alt="dr logo" width={'80px'} />
@@ -269,14 +269,14 @@ export default function Footer() {
 
           <div className="flex gap-5">
             <a
-              href="/privacy-policy"
+              href="#/privacy-policy"
               className="transition-colors hover:text-white"
             >
               Privacy Policy
             </a>
 
             <a
-              href="/terms"
+              href="#/terms"
               className="transition-colors hover:text-white"
             >
               Terms & Conditions

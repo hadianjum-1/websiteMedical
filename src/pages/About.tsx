@@ -530,7 +530,7 @@ export default function About() {
               </div>
 
               <a
-                href="/contact"
+                href="#/contact"
                 className="inline-flex items-center justify-center rounded-xl bg-[#0F3B67] px-6 py-3.5 text-sm font-semibold text-white transition-all hover:-translate-y-1 hover:bg-[#0b3155]"
               >
                 Book a Consultation →

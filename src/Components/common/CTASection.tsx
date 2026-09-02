@@ -42,7 +42,7 @@ export default function CTASection({
             </div>
 
             <a
-              href="/contact"
+              href="#/contact"
               className="group inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-white px-6 py-3.5 text-sm font-semibold text-[#0F3B67] transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
             >
               Book a Consultation

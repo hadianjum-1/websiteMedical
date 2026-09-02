@@ -112,7 +112,7 @@ export default function TreatmentPreview() {
           />
 
           <a
-            href="/treatments"
+            href="#/treatments"
             className="text-sm font-semibold text-[#0F3B67]"
           >
             Explore all treatments →
@@ -146,7 +146,7 @@ export default function TreatmentPreview() {
               </p>
 
               <a
-                href="/treatments"
+                href="#/treatments"
                 className="mt-8 inline-flex items-center gap-2 rounded-xl bg-white px-5 py-3 text-xs font-semibold text-[#0F3B67] transition-all hover:-translate-y-0.5"
               >
                 View treatment details
@@ -164,7 +164,7 @@ export default function TreatmentPreview() {
               return (
                 <a
                   key={treatment.title}
-                  href="/treatments"
+                  href="#/treatments"
                   className="group rounded-3xl border border-slate-100 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_15px_40px_rgba(15,59,103,0.07)]"
                 >
                   <div className="flex items-start justify-between gap-4">
