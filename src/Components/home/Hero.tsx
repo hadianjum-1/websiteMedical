@@ -24,136 +24,237 @@ export default function Hero() {
   const rightCardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Create a timeline for sequential animations
-      const tl = gsap.timeline();
+  const ctx = gsap.context(() => {
+    const tl = gsap.timeline();
 
-      // Animate badge
-      tl.from(badgeRef.current, {
-        opacity: 0,
-        x: -30,
-        duration: 0.6,
-        ease: "power2.out",
-      }, 0);
+    // -----------------------------------------
+    // Badge
+    // -----------------------------------------
+    if (badgeRef.current) {
+      tl.fromTo(
+        badgeRef.current,
+        {
+          opacity: 0,
+          x: -30,
+        },
+        {
+          opacity: 1,
+          x: 0,
+          duration: 0.6,
+          ease: "power2.out",
+        },
+        0
+      );
+    }
 
-      // Animate heading with stagger
-      if (headingRef.current) {
-        tl.from(headingRef.current.querySelectorAll("*"), {
+    // -----------------------------------------
+    // Heading
+    // -----------------------------------------
+    if (headingRef.current) {
+      tl.fromTo(
+        headingRef.current.querySelectorAll("span"),
+        {
           opacity: 0,
           y: 40,
+        },
+        {
+          opacity: 1,
+          y: 0,
           duration: 0.8,
           stagger: 0.1,
           ease: "power2.out",
-        }, 0);
-      }
+        },
+        0.1
+      );
+    }
 
-      // Animate description
-      tl.from(
+    // -----------------------------------------
+    // Description
+    // -----------------------------------------
+    if (descRef.current) {
+      tl.fromTo(
         descRef.current,
         {
           opacity: 0,
           y: 20,
+        },
+        {
+          opacity: 1,
+          y: 0,
           duration: 0.6,
           ease: "power2.out",
         },
         0.4
       );
+    }
 
-      // Animate CTA buttons
-      if (buttonsRef.current) {
-        tl.from(buttonsRef.current.querySelectorAll("a"), {
+    // -----------------------------------------
+    // CTA BUTTONS
+    // -----------------------------------------
+    if (buttonsRef.current) {
+      const buttons = buttonsRef.current.querySelectorAll("a");
+
+      tl.fromTo(
+        buttons,
+        {
           opacity: 0,
           y: 30,
+        },
+        {
+          opacity: 1,
+          y: 0,
           duration: 0.6,
           stagger: 0.15,
           ease: "power2.out",
-        }, 0.6);
-      }
+        },
+        0.6
+      );
+    }
 
-      // Animate trust points
-      if (trustRef.current) {
-        tl.from(trustRef.current.querySelectorAll("div"), {
+    // -----------------------------------------
+    // Trust points
+    // -----------------------------------------
+    if (trustRef.current) {
+      tl.fromTo(
+        trustRef.current.children,
+        {
           opacity: 0,
           x: -20,
+        },
+        {
+          opacity: 1,
+          x: 0,
           duration: 0.6,
           stagger: 0.08,
           ease: "power2.out",
-        }, 0.8);
-      }
+        },
+        0.8
+      );
+    }
 
-      // Animate credential section
-      if (credentialRef.current) {
-        tl.from(credentialRef.current, {
+    // -----------------------------------------
+    // Credentials
+    // -----------------------------------------
+    if (credentialRef.current) {
+      tl.fromTo(
+        credentialRef.current,
+        {
           opacity: 0,
           y: 20,
+        },
+        {
+          opacity: 1,
+          y: 0,
           duration: 0.6,
           ease: "power2.out",
-        }, 1.0);
-      }
+        },
+        1
+      );
+    }
 
-      // Animate main image
-      if (imageRef.current) {
-        tl.from(imageRef.current, {
+    // -----------------------------------------
+    // Main image
+    // -----------------------------------------
+    if (imageRef.current) {
+      tl.fromTo(
+        imageRef.current,
+        {
           opacity: 0,
           scale: 0.9,
           x: 40,
+        },
+        {
+          opacity: 1,
+          scale: 1,
+          x: 0,
           duration: 0.8,
           ease: "power2.out",
-        }, 0.3);
-      }
+        },
+        0.3
+      );
+    }
 
-      // Animate floating cards with delay
-      if (leftCardRef.current) {
-        tl.from(leftCardRef.current, {
+    // -----------------------------------------
+    // Left floating card
+    // -----------------------------------------
+    if (leftCardRef.current) {
+      tl.fromTo(
+        leftCardRef.current,
+        {
           opacity: 0,
           x: -50,
+        },
+        {
+          opacity: 1,
+          x: 0,
           duration: 0.7,
           ease: "power2.out",
-        }, 0.8);
-      }
+        },
+        0.8
+      );
+    }
 
-      if (rightCardRef.current) {
-        tl.from(rightCardRef.current, {
+    // -----------------------------------------
+    // Right floating card
+    // -----------------------------------------
+    if (rightCardRef.current) {
+      tl.fromTo(
+        rightCardRef.current,
+        {
           opacity: 0,
           x: 50,
+        },
+        {
+          opacity: 1,
+          x: 0,
           duration: 0.7,
           ease: "power2.out",
-        }, 0.9);
-      }
+        },
+        0.9
+      );
+    }
 
-      // Floating animation — main image
+    // -----------------------------------------
+    // Floating animations
+    // Start AFTER entrance animation
+    // -----------------------------------------
+
+    if (imageRef.current) {
       gsap.to(imageRef.current, {
         y: 20,
         duration: 3,
         repeat: -1,
         yoyo: true,
         ease: "sine.inOut",
-        delay: 1.5,
+        delay: 1.8,
       });
+    }
 
-      // Floating animation — left card
+    if (leftCardRef.current) {
       gsap.to(leftCardRef.current, {
         y: 15,
         duration: 3.5,
         repeat: -1,
         yoyo: true,
         ease: "sine.inOut",
-        delay: 1.7,
+        delay: 2,
       });
+    }
 
-      // Floating animation — right card
+    if (rightCardRef.current) {
       gsap.to(rightCardRef.current, {
         y: -15,
         duration: 3.5,
         repeat: -1,
         yoyo: true,
         ease: "sine.inOut",
-        delay: 1.9,
+        delay: 2.2,
       });
-    });
+    }
+  });
 
-    return () => ctx.revert();
-  }, []);
+  return () => ctx.revert();
+}, []);
 
   return (
     <section className="relative overflow-hidden bg-[#F8FAFC]">

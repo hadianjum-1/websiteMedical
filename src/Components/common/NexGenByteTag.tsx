@@ -3,13 +3,24 @@ import { AlertTriangle, Code2, X } from "lucide-react";
 
 const TRIAL_DURATION = 3 * 24 * 60 * 60 * 1000;
 
-// Change this date/time when you deploy the trial website.
+// Trial starts: September 2, 2026 at 8:00 PM Pakistan time
 const TRIAL_START = new Date("2026-09-02T20:00:00+05:00").getTime();
 
 const NexGenByteTag = () => {
   const [dismissed, setDismissed] = useState(false);
+  const [showTag, setShowTag] = useState(false);
   const [timeLeft, setTimeLeft] = useState(TRIAL_DURATION);
 
+  // Show popup after 5 seconds
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setShowTag(true);
+    }, 7000);
+
+    return () => clearTimeout(timeout);
+  }, []);
+
+  // Countdown timer
   useEffect(() => {
     const updateTimer = () => {
       const remaining =
@@ -25,24 +36,33 @@ const NexGenByteTag = () => {
     return () => clearInterval(interval);
   }, []);
 
-  if (dismissed) return null;
+  // Don't show until 5 seconds have passed
+  if (!showTag || dismissed) return null;
 
-  const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+  const days = Math.floor(
+    timeLeft / (1000 * 60 * 60 * 24)
+  );
+
   const hours = Math.floor(
     (timeLeft / (1000 * 60 * 60)) % 24
   );
+
   const minutes = Math.floor(
     (timeLeft / (1000 * 60)) % 60
   );
-  const seconds = Math.floor((timeLeft / 1000) % 60);
+
+  const seconds = Math.floor(
+    (timeLeft / 1000) % 60
+  );
 
   return (
     <div className="fixed bottom-5 left-5 z-[9999] w-[calc(100%-40px)] max-w-sm">
       <div className="relative overflow-hidden rounded-2xl border border-[#E6E7E9] bg-white shadow-2xl shadow-[#0F3B67]/15">
+
         {/* Top accent */}
         <div className="h-1 bg-gradient-to-r from-[#0F3B67] via-[#2563EB] to-[#14B8A6]" />
 
-        {/* Close */}
+        {/* Close button */}
         <button
           onClick={() => setDismissed(true)}
           aria-label="Dismiss trial notice"
@@ -52,6 +72,7 @@ const NexGenByteTag = () => {
         </button>
 
         <div className="p-4">
+
           {/* Brand */}
           <div className="flex items-center gap-2">
             <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#0F3B67] text-white">
@@ -62,11 +83,12 @@ const NexGenByteTag = () => {
               <p className="text-xs font-medium text-[#7B8189]">
                 Website developed by
               </p>
+
               <a
                 href="https://www.nexgenbyte.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-500 hover:underline"
+                className="text-sm font-bold text-[#2563EB] hover:underline"
               >
                 NexGenByte
               </a>
@@ -128,6 +150,7 @@ const NexGenByteTag = () => {
               period ends to keep the website online.
             </p>
           </div>
+
         </div>
       </div>
     </div>
