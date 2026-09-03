@@ -82,7 +82,7 @@ const Contact = () => {
             <p className="mt-4 text-sm leading-7 text-[#5B6169]">
               Clinic No. 60
               <br />
-              Ground Floor, New Building (GH)
+              Ground Floor, New Building (GH) RMI
               <br />
               5-B/2, Phase-V
               <br />
@@ -134,6 +134,68 @@ const Contact = () => {
           </div>
         </div>
       </section>
+      {/* GOOGLE MAP */}
+<section className="px-6 pb-20 sm:px-8 lg:px-12">
+  <div className="mx-auto max-w-6xl">
+    <div className="mb-8">
+      <span className="text-sm font-bold uppercase tracking-[0.18em] text-[#0F766E]">
+        Find Us
+      </span>
+
+      <h2 className="mt-3 font-playfair text-3xl font-semibold text-[#0F3B67] sm:text-4xl">
+        Visit Dr. D’s Clinic
+      </h2>
+
+      <p className="mt-3 max-w-2xl text-sm leading-7 text-[#5B6169] sm:text-base">
+        Clinic No. 60, Ground Floor, New Building (GH), RMI,
+        5-B/2, Phase-V, Hayatabad, Peshawar, Khyber Pakhtunkhwa, Pakistan.
+      </p>
+    </div>
+
+    <div className="overflow-hidden rounded-3xl border border-[#E6E7E9] bg-white shadow-lg">
+      <div className="aspect-[16/7] w-full">
+        <iframe
+          title="Dr. D’s Clinic Location"
+          src="https://www.google.com/maps?q=RMI%20Hayatabad%20Peshawar%20Khyber%20Pakhtunkhwa%20Pakistan&output=embed"
+          width="100%"
+          height="100%"
+          style={{ border: 0 }}
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          allowFullScreen
+        />
+      </div>
+
+      <div className="flex flex-col gap-4 p-6 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex gap-3">
+          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#E8F4FF] text-[#2563EB]">
+            <MapPin size={20} />
+          </div>
+
+          <div>
+            <p className="font-semibold text-[#0F3B67]">
+              Clinic No. 60, RMI
+            </p>
+
+            <p className="mt-1 text-sm text-[#5B6169]">
+              Ground Floor, New Building (GH) RMI, Hayatabad, Peshawar
+            </p>
+          </div>
+        </div>
+
+        <a
+          href="https://www.google.com/maps/search/?api=1&query=RMI%20Hayatabad%20Peshawar%20Khyber%20Pakhtunkhwa%20Pakistan"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#0F3B67] px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-[#2563EB]"
+        >
+          Open in Google Maps
+          <ArrowRight size={17} />
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* FORM */}
       <section className="px-6 pb-20 sm:px-8 lg:px-12">

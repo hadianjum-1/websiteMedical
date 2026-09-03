@@ -10,7 +10,7 @@ import {
 
 import Container from "../common/Container";
 import Badge from "../common/Badge";
-import Drimage from '/src/assets/dr-romana.png'
+import Drimage from '/src/assets/drimage.png'
 
 export default function Hero() {
   const badgeRef = useRef<HTMLDivElement>(null);
@@ -341,7 +341,7 @@ export default function Hero() {
               {/* Primary CTA */}
 
               <a
-                href="/contact"
+                href="#/contact"
                 className="group inline-flex items-center justify-center gap-2 rounded-xl bg-[#0F3B67] px-6 py-3.5 text-sm font-semibold text-white shadow-[0_8px_25px_rgba(15,59,103,0.15)] transition-all duration-300 hover:-translate-y-1 hover:bg-[#0b3155] hover:shadow-[0_14px_30px_rgba(15,59,103,0.2)]"
               >
                 <CalendarDays size={17} />
@@ -357,7 +357,7 @@ export default function Hero() {
               {/* Secondary CTA */}
 
               <a
-                href="/treatments"
+                href="#/treatments"
                 className="group inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-6 py-3.5 text-sm font-semibold text-[#0F3B67] transition-all duration-300 hover:-translate-y-1 hover:border-[#14B8A6]/40 hover:bg-[#E8F4FF]"
               >
                 Explore Treatments

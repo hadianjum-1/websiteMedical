@@ -27,6 +27,63 @@ const services = [
   "Life Coaching Support",
 ];
 
+const socialLinks = [
+  {
+    name: "Facebook",
+    href: "https://web.facebook.com/profile.php?id=61593719115577",
+    icon: (
+      <svg
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        className="h-[18px] w-[18px]"
+        aria-hidden="true"
+      >
+        <path d="M14 8h3V4h-3c-3.3 0-5 1.7-5 5v3H6v4h3v8h4v-8h3l1-4h-4V9c0-.7.3-1 1-1z" />
+      </svg>
+    ),
+  },
+
+  {
+    name: "Instagram",
+    href: "https://www.instagram.com/",
+    icon: (
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        className="h-[18px] w-[18px]"
+        aria-hidden="true"
+      >
+        <rect x="3" y="3" width="18" height="18" rx="5" />
+        <circle cx="12" cy="12" r="4" />
+        <circle
+          cx="17.5"
+          cy="6.5"
+          r="1"
+          fill="currentColor"
+          stroke="none"
+        />
+      </svg>
+    ),
+  },
+
+  {
+    name: "LinkedIn",
+    href: "https://www.linkedin.com/",
+    icon: (
+      <svg
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        className="h-[18px] w-[18px]"
+        aria-hidden="true"
+      >
+        <path d="M6.5 8.5A2.5 2.5 0 1 0 6.5 3a2.5 2.5 0 0 0 0 5.5ZM4 10h5v11H4V10Zm7 0h4.8v1.5h.1c.7-1.2 2.2-2 4.2-2 4.5 0 5.3 3 5.3 6.8V21h-5v-4.2c0-1 0-2.4-1.5-2.4s-1.7 1.1-1.7 2.3V21h-5V10Z" />
+      </svg>
+    ),
+  },
+];
+
 export default function Footer() {
   return (
     <footer className="bg-[#0F3B67] text-white">
@@ -112,21 +169,37 @@ export default function Footer() {
             </p>
 
             {/* Social Icons */}
-
-            <div className="mt-6 flex gap-3">
-              {["Facebook", "Instagram", "LinkedIn"].map((social) => (
-                <a
-                  key={social}
-                  href="#"
-                  aria-label={social}
-                  className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 text-xs text-blue-100 transition-all hover:border-[#14B8A6] hover:bg-[#14B8A6] hover:text-white"
-                >
-                  {social.charAt(0)}
-                </a>
-              ))}
-            </div>
+            {/* Social Icons */}
+<div className="mt-7 flex items-center gap-3">
+  {socialLinks.map((social) => (
+    <a
+      key={social.name}
+      href={social.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`Dr. Romana Durrani on ${social.name}`}
+      className="
+        group
+        flex h-10 w-10
+        items-center justify-center
+        rounded-full
+        border border-white/15
+        bg-white/5
+        text-blue-100
+        transition-all duration-300
+        hover:-translate-y-1
+        hover:border-[#14B8A6]
+        hover:bg-[#14B8A6]
+        hover:text-white
+        hover:shadow-lg
+        hover:shadow-[#14B8A6]/20
+      "
+    >
+      {social.icon}
+    </a>
+  ))}
+</div>
           </div>
-
           {/* Quick Links */}
 
           <div>
@@ -192,7 +265,7 @@ export default function Footer() {
                 <p className="text-sm leading-6 text-blue-100">
                   Clinic No. 60, Ground Floor,
                   <br />
-                  New Building (GH)
+                  New Building (GH) RMI
                   <br />
                   5-B/2, Phase-V, Hayatabad,
                   <br />

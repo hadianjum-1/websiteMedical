@@ -6,11 +6,12 @@ import {
   GraduationCap,
   HeartPulse,
   Stethoscope,
+  ArrowRight
 } from "lucide-react";
 
 import Container from "./../Components/common/Container";
 import Badge from "./../Components/common/Badge";
-import drimage from "/src/assets/dr-romana.png";
+import drimage from "/src/assets/drimage.png";
 
 
 export default function About() {
@@ -288,9 +289,13 @@ export default function About() {
                     text: "Worked as a consultant and contributed to clinical training and professional development.",
                   },
                   {
-                    title: "Pakistan",
-                    text: "Worked with Shaukat Khanum and later joined RMI as a Pain Consultant.",
-                  },
+  title: "Shaukat Khanum Memorial Cancer Hospital & Research Centre, Lahore",
+  text: "Contributed to the development of the Pain Medicine department and helped the department gain recognition for fellowship training in Pain Medicine. She also contributed to national guidelines for cancer and chronic pain during COVID, published by CPSP.",
+},
+{
+  title: "RMI, Peshawar",
+  text: "Recently returned to Pakistan and joined RMI as a Pain Medicine Consultant, providing specialist pain services and anaesthesia services.",
+},
                 ].map((item, index) => (
                   <div
                     key={item.title}
@@ -301,7 +306,7 @@ export default function About() {
                         {index + 1}
                       </div>
 
-                      {index !== 4 && (
+                      {index !== 5 && (
                         <div className="mt-2 h-full w-px bg-slate-200" />
                       )}
                     </div>
@@ -372,6 +377,128 @@ export default function About() {
 
         </Container>
       </section>
+      {/* =========================================================
+    SHAUKAT KHANUM EXPERIENCE
+========================================================= */}
+
+<section className="bg-white py-20 sm:py-24">
+  <Container>
+    <div className="mx-auto max-w-6xl">
+
+      <div className="grid items-center gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
+
+        {/* Left */}
+        <div>
+          <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#E8F4FF]">
+            <HeartPulse
+              size={25}
+              className="text-[#2563EB]"
+            />
+          </div>
+
+          <span className="mt-6 block text-xs font-semibold uppercase tracking-[0.2em] text-[#14B8A6]">
+            Clinical Experience
+          </span>
+
+          <h2 className="mt-4 font-['Playfair_Display'] text-3xl font-semibold leading-tight text-[#0F3B67] sm:text-4xl">
+            Shaukat Khanum Memorial Cancer Hospital & Research Centre, Lahore
+          </h2>
+
+          <p className="mt-5 text-sm leading-7 text-slate-500 sm:text-base sm:leading-8">
+            Dr. Romana worked at Shaukat Khanum Memorial Cancer Hospital &
+            Research Centre, Lahore, contributing to specialist pain medicine
+            services and the development of the department.
+          </p>
+        </div>
+
+        {/* Right */}
+        <div className="rounded-[32px] bg-[#F8FAFC] p-7 sm:p-9">
+
+          <div className="space-y-7">
+
+            <div className="flex gap-4">
+              <div className="mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#C7F2E9]">
+                <CheckCircle2
+                  size={18}
+                  className="text-[#0F766E]"
+                />
+              </div>
+
+              <div>
+                <h3 className="font-['Playfair_Display'] text-xl font-semibold text-[#0F3B67]">
+                  Pain Medicine Development
+                </h3>
+
+                <p className="mt-2 text-sm leading-6 text-slate-500">
+                  Contributed to the development of the department and helped
+                  establish it for fellowship training in Pain Medicine.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex gap-4">
+              <div className="mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#E8F4FF]">
+                <BookOpen
+                  size={18}
+                  className="text-[#2563EB]"
+                />
+              </div>
+
+              <div>
+                <h3 className="font-['Playfair_Display'] text-xl font-semibold text-[#0F3B67]">
+                  National Pain Guidelines
+                </h3>
+
+                <p className="mt-2 text-sm leading-6 text-slate-500">
+                  Contributed to national guidelines for cancer and chronic
+                  pain during COVID, published by the College of Physicians
+                  and Surgeons Pakistan (CPSP).
+                </p>
+              </div>
+            </div>
+
+            <div className="flex gap-4">
+              <div className="mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#E9D5FF]">
+                <Award
+                  size={18}
+                  className="text-[#7C3AED]"
+                />
+              </div>
+
+              <div>
+                <h3 className="font-['Playfair_Display'] text-xl font-semibold text-[#0F3B67]">
+                  Specialist Cancer Pain Care
+                </h3>
+
+                <p className="mt-2 text-sm leading-6 text-slate-500">
+                  Experience in managing cancer-related pain as part of a
+                  multidisciplinary specialist pain service.
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+          {/* CPSP Link */}
+          <div className="mt-8 border-t border-slate-200 pt-6">
+            <a
+              href="https://www.cpsp.edu.pk/files/guidelines/cpsm-guidelines.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-[#2563EB] transition hover:text-[#0F3B67]"
+            >
+              View the CPSP Guidelines
+              <ArrowRight size={17} />
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </Container>
+</section>
 
       {/* =========================================================
           ACADEMIC CONTRIBUTION

@@ -9,7 +9,7 @@ import {
 
 import Container from "../common/Container";
 import Badge from "../common/Badge";
-import Drimage from '/src/assets/dr-romana.png';
+import Drimage from '/src/assets/drimage.png';
 
 export default function AboutPreview() {
   const sectionRef = useRef<HTMLDivElement>(null);
