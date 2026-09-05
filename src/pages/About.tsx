@@ -11,7 +11,7 @@ import {
 
 import Container from "./../Components/common/Container";
 import Badge from "./../Components/common/Badge";
-import drimage from "/src/assets/drimage.png";
+import drimage from "/src/assets/imageupdateDr.png";
 
 
 export default function About() {

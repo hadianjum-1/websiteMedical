@@ -10,7 +10,7 @@ import {
 
 import Container from "../common/Container";
 import Badge from "../common/Badge";
-import Drimage from '/src/assets/drimage.png'
+import Drimage from '/src/assets/imageupdateDr.png'
 
 export default function Hero() {
   const badgeRef = useRef<HTMLDivElement>(null);

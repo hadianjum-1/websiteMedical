@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import gsap from "gsap";
 import {
@@ -11,6 +11,58 @@ import {
 
 const Contact = () => {
   const pageRef = useRef<HTMLDivElement>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const CLINIC_EMAIL = "romanadurrani@hotmail.com";
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    setIsSubmitting(true);
+
+    const formData = new FormData(e.currentTarget);
+
+    const name = formData.get("name")?.toString().trim();
+    const email = formData.get("email")?.toString().trim();
+    const subject = formData.get("subject")?.toString().trim();
+    const message = formData.get("message")?.toString().trim();
+
+    if (!name || !email || !subject || !message) {
+      alert("Please fill in all fields.");
+      setIsSubmitting(false);
+      return;
+    }
+
+    const emailSubject = `Appointment Request - ${name}`;
+
+    const emailBody = `
+Hello Dr. Romana,
+
+I would like to request an appointment.
+
+Patient/Visitor Details
+-----------------------
+Name: ${name}
+Email: ${email}
+Subject: ${subject}
+
+Message:
+${message}
+
+Thank you.
+    `.trim();
+
+    const mailtoURL =
+      `mailto:${CLINIC_EMAIL}` +
+      `?subject=${encodeURIComponent(emailSubject)}` +
+      `&body=${encodeURIComponent(emailBody)}`;
+
+    window.location.href = mailtoURL;
+
+    setTimeout(() => {
+      setIsSubmitting(false);
+    }, 1000);
+  };
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -43,6 +95,8 @@ const Contact = () => {
 
     return () => ctx.revert();
   }, []);
+
+  
 
   return (
     <main
@@ -232,65 +286,107 @@ const Contact = () => {
               </div>
             </div>
 
-            <form className="p-8 sm:p-10 lg:p-12">
-              <div className="grid gap-5 sm:grid-cols-2">
-                <div>
-                  <label className="mb-2 block text-sm font-medium">
-                    Full Name
-                  </label>
+           <form
+  onSubmit={handleSubmit}
+  className="p-8 sm:p-10 lg:p-12"
+>
+  <div className="grid gap-5 sm:grid-cols-2">
+    {/* FULL NAME */}
+    <div>
+      <label
+        htmlFor="name"
+        className="mb-2 block text-sm font-medium text-[#0F3B67]"
+      >
+        Full Name
+      </label>
 
-                  <input
-                    type="text"
-                    placeholder="Your name"
-                    className="w-full rounded-xl border border-[#E6E7E9] px-4 py-3.5 outline-none transition focus:border-[#2563EB] focus:ring-2 focus:ring-[#2563EB]/10"
-                  />
-                </div>
+      <input
+        id="name"
+        name="name"
+        type="text"
+        placeholder="Your name"
+        required
+        autoComplete="name"
+        className="w-full rounded-xl border border-[#E6E7E9] px-4 py-3.5 outline-none transition focus:border-[#2563EB] focus:ring-2 focus:ring-[#2563EB]/10"
+      />
+    </div>
 
-                <div>
-                  <label className="mb-2 block text-sm font-medium">
-                    Email
-                  </label>
+    {/* EMAIL */}
+    <div>
+      <label
+        htmlFor="email"
+        className="mb-2 block text-sm font-medium text-[#0F3B67]"
+      >
+        Email
+      </label>
 
-                  <input
-                    type="email"
-                    placeholder="your@email.com"
-                    className="w-full rounded-xl border border-[#E6E7E9] px-4 py-3.5 outline-none transition focus:border-[#2563EB] focus:ring-2 focus:ring-[#2563EB]/10"
-                  />
-                </div>
-              </div>
+      <input
+        id="email"
+        name="email"
+        type="email"
+        placeholder="your@email.com"
+        required
+        autoComplete="email"
+        className="w-full rounded-xl border border-[#E6E7E9] px-4 py-3.5 outline-none transition focus:border-[#2563EB] focus:ring-2 focus:ring-[#2563EB]/10"
+      />
+    </div>
+  </div>
 
-              <div className="mt-5">
-                <label className="mb-2 block text-sm font-medium">
-                  Subject
-                </label>
+  {/* SUBJECT */}
+  <div className="mt-5">
+    <label
+      htmlFor="subject"
+      className="mb-2 block text-sm font-medium text-[#0F3B67]"
+    >
+      Subject
+    </label>
 
-                <input
-                  type="text"
-                  placeholder="Appointment enquiry"
-                  className="w-full rounded-xl border border-[#E6E7E9] px-4 py-3.5 outline-none transition focus:border-[#2563EB] focus:ring-2 focus:ring-[#2563EB]/10"
-                />
-              </div>
+    <input
+      id="subject"
+      name="subject"
+      type="text"
+      placeholder="Appointment enquiry"
+      required
+      className="w-full rounded-xl border border-[#E6E7E9] px-4 py-3.5 outline-none transition focus:border-[#2563EB] focus:ring-2 focus:ring-[#2563EB]/10"
+    />
+  </div>
 
-              <div className="mt-5">
-                <label className="mb-2 block text-sm font-medium">
-                  Message
-                </label>
+  {/* MESSAGE */}
+  <div className="mt-5">
+    <label
+      htmlFor="message"
+      className="mb-2 block text-sm font-medium text-[#0F3B67]"
+    >
+      Message
+    </label>
 
-                <textarea
-                  rows={5}
-                  placeholder="Tell us briefly about your enquiry..."
-                  className="w-full resize-none rounded-xl border border-[#E6E7E9] px-4 py-3.5 outline-none transition focus:border-[#2563EB] focus:ring-2 focus:ring-[#2563EB]/10"
-                />
-              </div>
+    <textarea
+      id="message"
+      name="message"
+      rows={5}
+      placeholder="Tell us briefly about your enquiry..."
+      required
+      className="w-full resize-none rounded-xl border border-[#E6E7E9] px-4 py-3.5 outline-none transition focus:border-[#2563EB] focus:ring-2 focus:ring-[#2563EB]/10"
+    />
+  </div>
 
-              <button
-                type="submit"
-                className="mt-6 inline-flex items-center gap-2 rounded-xl bg-[#0F3B67] px-6 py-3.5 font-semibold text-white transition hover:-translate-y-1 hover:bg-[#2563EB]"
-              >
-                Send Enquiry
-                <ArrowRight size={18} />
-              </button>
-            </form>
+  {/* PRIVACY NOTE */}
+ <p className="mt-4 text-xs leading-5 text-[#6B7280]">
+  Please avoid including sensitive medical or confidential information
+  in your enquiry.
+</p>
+
+  {/* SUBMIT */}
+  <button
+    type="submit"
+    disabled={isSubmitting}
+    className="mt-6 inline-flex items-center gap-2 rounded-xl bg-[#0F3B67] px-6 py-3.5 font-semibold text-white transition hover:-translate-y-1 hover:bg-[#2563EB] disabled:cursor-not-allowed disabled:opacity-60"
+  >
+    {isSubmitting ? "Opening Email..." : "Send Enquiry"}
+
+    {!isSubmitting && <ArrowRight size={18} />}
+  </button>
+</form>
           </div>
         </div>
       </section>
