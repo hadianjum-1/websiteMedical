@@ -12,9 +12,14 @@ import {
 import Container from "./../Components/common/Container";
 import Badge from "./../Components/common/Badge";
 import drimage from "/src/assets/imageupdateDr.png";
+import { useEffect } from "react";
 
 
 export default function About() {
+
+  useEffect(()=>{
+     document.title = " Dr. Romana Durrani | About";
+  },[])
   return (
     <main className="bg-[#F8FAFC]">
 

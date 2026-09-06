@@ -18,6 +18,7 @@ const Treatments = () => {
   const gridRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+     document.title = " Dr. Romana Durrani | Treatment page";
     const ctx = gsap.context(() => {
       const tl = gsap.timeline();
 

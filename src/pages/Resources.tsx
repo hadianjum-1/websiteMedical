@@ -16,6 +16,7 @@ const Resources = () => {
   const gridRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+     document.title = " Dr. Romana Durrani | Resources page";
     const ctx = gsap.context(() => {
       gsap
         .timeline()

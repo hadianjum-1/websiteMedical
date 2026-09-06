@@ -10,7 +10,7 @@ import SuccessStories from "./pages/SuccessStories";
 import Contact from "./pages/Contact";
 import Resources from "./pages/Resources";
 import Treatments from "./pages/Treatments";
-import NexGenByteTag from "./Components/common/NexGenByteTag";
+// import NexGenByteTag from "./Components/common/NexGenByteTag";
 
 const App = () => {
   return (
@@ -28,7 +28,7 @@ const App = () => {
       </Routes>
 
       <Footer />
-      <NexGenByteTag/>
+      {/* <NexGenByteTag/> */}
     </>
   );
 };

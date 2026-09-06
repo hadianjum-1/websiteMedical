@@ -19,6 +19,7 @@ const Conditions = () => {
   const finalCtaRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+     document.title = " Dr. Romana Durrani | Conditions page";
     const ctx = gsap.context(() => {
       // Hero load animation
       const heroTl = gsap.timeline();

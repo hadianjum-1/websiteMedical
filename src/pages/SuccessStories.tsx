@@ -13,6 +13,7 @@ const SuccessStories = () => {
   const pageRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+     document.title = " Dr. Romana Durrani | Stories page";
     const ctx = gsap.context(() => {
       gsap
         .timeline()

@@ -65,6 +65,7 @@ Thank you.
   };
 
   useEffect(() => {
+     document.title = " Dr. Romana Durrani | Contact page";
     const ctx = gsap.context(() => {
       gsap
         .timeline()
