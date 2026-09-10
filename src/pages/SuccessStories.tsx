@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import gsap from "gsap";
+import patientVideo from '../assets/VIDEO-2026-08-28-18-18-33.mp4'
 import {
   ArrowRight,
   Play,
@@ -74,32 +75,32 @@ const SuccessStories = () => {
       <section className="px-6 py-20 sm:px-8 lg:px-12">
         <div className="featured-story mx-auto max-w-6xl overflow-hidden rounded-3xl bg-white shadow-xl shadow-[#0F3B67]/8">
           <div className="grid lg:grid-cols-2">
-            {/* Visual */}
-            <div className="relative flex min-h-[420px] items-center justify-center bg-[#0F3B67] p-8">
-              <div className="absolute inset-0 opacity-20">
-                <div className="absolute left-10 top-10 h-40 w-40 rounded-full bg-[#14B8A6] blur-3xl" />
-                <div className="absolute bottom-10 right-10 h-40 w-40 rounded-full bg-[#2563EB] blur-3xl" />
-              </div>
+          {/* Patient Video */}
+<div className="relative min-h-[420px] overflow-hidden bg-[#0F3B67]">
+  <video
+    className="h-full min-h-[420px] w-full object-cover"
+    controls
+    playsInline
+    preload="metadata"
+    poster=""
+  >
+    <source src={patientVideo} type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
 
-              <div className="relative text-center text-white">
-                <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-white/10 backdrop-blur">
-                  <Play size={30} className="ml-1" />
-                </div>
+  {/* Overlay */}
+  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0F3B67]/80 via-transparent to-transparent" />
 
-                <p className="mt-6 text-sm uppercase tracking-[0.2em] text-white/50">
-                  Patient Story
-                </p>
+  <div className="pointer-events-none absolute bottom-0 left-0 right-0 p-8 text-white">
+    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/60">
+      Patient Story
+    </p>
 
-                <h2 className="mt-3 font-playfair text-3xl font-semibold">
-                  From wheelchair to walking home
-                </h2>
-
-                <p className="mt-4 text-sm text-white/60">
-                  Video and photographs coming soon
-                </p>
-              </div>
-            </div>
-
+    <h3 className="mt-2 font-playfair text-2xl font-semibold sm:text-3xl">
+      From wheelchair to walking home
+    </h3>
+  </div>
+</div>
             {/* Content */}
             <div className="p-8 sm:p-10 lg:p-12">
               <span className="text-sm font-bold uppercase tracking-[0.18em] text-[#14B8A6]">

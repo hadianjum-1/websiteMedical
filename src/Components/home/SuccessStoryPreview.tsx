@@ -8,16 +8,21 @@ import {
 
 import Container from "../common/Container";
 import Badge from "../common/Badge";
+import patientVideo from "/src/assets/VIDEO-2026-08-28-18-18-33.mp4";
 
 export default function SuccessStoryPreview() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const visualRef = useRef<HTMLDivElement>(null);
   const storyRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    // Floating blob in visual section
+    // Floating blob animation
     if (visualRef.current) {
-      const blob = visualRef.current.querySelector("div.absolute.rounded-full");
+      const blob = visualRef.current.querySelector(
+        "div.absolute.rounded-full"
+      );
+
       if (blob) {
         gsap.to(blob, {
           x: 30,
@@ -40,16 +45,28 @@ export default function SuccessStoryPreview() {
             gsap.fromTo(
               visualRef.current,
               { opacity: 0, x: -50 },
-              { opacity: 1, x: 0, duration: 0.8, ease: "power2.out" }
+              {
+                opacity: 1,
+                x: 0,
+                duration: 0.8,
+                ease: "power2.out",
+              }
             );
           }
+
           if (storyRef.current) {
             gsap.fromTo(
               storyRef.current,
               { opacity: 0, x: 50 },
-              { opacity: 1, x: 0, duration: 0.8, ease: "power2.out" }
+              {
+                opacity: 1,
+                x: 0,
+                duration: 0.8,
+                ease: "power2.out",
+              }
             );
           }
+
           observer.disconnect();
         }
       },
@@ -57,19 +74,39 @@ export default function SuccessStoryPreview() {
     );
 
     observer.observe(target);
+
     return () => observer.disconnect();
   }, []);
 
+  const handlePlayVideo = () => {
+    if (videoRef.current) {
+      videoRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+
+      videoRef.current.play();
+    }
+  };
+
   return (
-    <section ref={sectionRef} className="bg-[#F8FAFC] py-20 sm:py-24 lg:py-28">
+    <section
+      ref={sectionRef}
+      className="bg-[#F8FAFC] py-20 sm:py-24 lg:py-28"
+    >
       <Container>
         <div className="grid overflow-hidden rounded-[32px] bg-white shadow-[0_20px_70px_rgba(15,59,103,0.07)] lg:grid-cols-[0.9fr_1.1fr]">
-          {/* Visual */}
 
-          <div ref={visualRef} className="relative min-h-[400px] bg-gradient-to-br from-[#0F3B67] to-[#2563EB] p-7 sm:p-10 lg:min-h-full">
+          {/* Visual */}
+          <div
+            ref={visualRef}
+            className="relative min-h-[500px] overflow-hidden bg-gradient-to-br from-[#0F3B67] to-[#2563EB] p-7 sm:p-10 lg:min-h-full"
+          >
+            {/* Background blob */}
             <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-[#14B8A6]/20 blur-3xl" />
 
             <div className="relative flex h-full flex-col justify-between">
+
               <div>
                 <Badge variant="teal">Patient Story</Badge>
 
@@ -86,11 +123,25 @@ export default function SuccessStoryPreview() {
                 </div>
               </div>
 
-              {/* Video placeholder */}
+              {/* Patient Video */}
+              <div className="mt-10 overflow-hidden rounded-2xl border border-white/20 bg-black/20 shadow-2xl">
+                <video
+                  ref={videoRef}
+                  src={patientVideo}
+                  className="aspect-video w-full object-cover"
+                  controls
+                  playsInline
+                  preload="metadata"
+                >
+                  Your browser does not support the video tag.
+                </video>
+              </div>
 
+              {/* Watch Button */}
               <button
                 type="button"
-                className="mt-12 flex w-fit items-center gap-3 rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-xs font-semibold text-white backdrop-blur-md transition-all hover:bg-white/20"
+                onClick={handlePlayVideo}
+                className="mt-5 flex w-fit items-center gap-3 rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-xs font-semibold text-white backdrop-blur-md transition-all hover:bg-white/20"
               >
                 <PlayCircle size={20} />
                 Watch success story
@@ -99,8 +150,10 @@ export default function SuccessStoryPreview() {
           </div>
 
           {/* Story */}
-
-          <div ref={storyRef} className="p-7 sm:p-10 lg:p-14">
+          <div
+            ref={storyRef}
+            className="p-7 sm:p-10 lg:p-14"
+          >
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[#14B8A6]">
               A real patient experience
             </span>
@@ -135,6 +188,7 @@ export default function SuccessStoryPreview() {
                     size={17}
                     className="shrink-0 text-[#14B8A6]"
                   />
+
                   {item}
                 </div>
               ))}
